@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	
+	function send() {
+		let inputuserid = document.loginform.txtuserid;
+		let inputuserpassword = document.getElementById("txtpwd");
+		console.log(inputuserpassword);
+		console.log(inputuserpassword.value);
+		
+		if(inputuserid.value == " " || !(inputuserid.value.length >=3 && 
+										inputuserid.value.length < 10)) {
+			alert("다시 입력하세요");
+			document.loginform.txtuserid.focus();
+			inputuserid.select();
+		} else {
+			alert("검증완료");
+			document.loginform.action="Ex08_login.jsp";
+			document.loginform.submit();
+		}
+	}
+	
+	</script>
+</head>
+<body>
+	<form action="" method="get" name="loginform">
+			ID:<input type="text" name="txtuserid">
+			PWD:<input type="password" name="txtpwd" id="txtpwd">
+		 	<input type="button" value="보내기" onclick="send()"> 
+	</form>
+</body>
+</html>

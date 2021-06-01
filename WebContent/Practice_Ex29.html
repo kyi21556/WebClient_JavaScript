@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	window.onload = function() {
+		let btn = document.getElementById("mybtn");
+		
+		btn.onclick = function(e) {
+			console.log(e.x);
+			console.log(e.y);
+		}
+		
+		let btn2 = document.getElementById("mybtn2");
+		
+		let handler = function(event) {
+			switch (event.type) {
+			case "click":
+				alert("클릭");
+				break;
+			case "mouseout":
+				event.target.style.backgroundColor="";
+				break;
+			case "mouseover":
+				event.target.style.backgroundColor="red";
+				break;
+			}
+		}
+		
+		btn2.onclick = handler;
+		btn2.onmouseout = handler;
+		btn2.onmouseover = handler;
+	}
+	</script>
+</head>
+<body>
+	<button id="mybtn"><span>콘솔창에서 좌표값 보기</span></button>
+	<br>
+	<button id="mybtn2">눌러봐2</button>
+</body>
+</html>

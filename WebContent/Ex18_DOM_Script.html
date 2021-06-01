@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/* 
+		onload라는 이벤트가 발생하는 시점: body태그 안에 있는 모든 요소가 브라우저에 로딩 되고 난 후(DOM이 만들어진 후)
+		function call() {
+			
+		}
+		로드이벤트를 거는 방법
+		1. <body onload="call()">
+		2. window.onload = call();
+		
+		call() 재사용 안할거라면(load에서만 한번 쓰고 안쓸것이면)
+		
+		그러면 함수의 이름이 굳이 필요할까??
+		(익명함수: 힐회성 함수) => 재사용 불가
+		
+		page 모든 요소가 loading 된 후에 함수를 자동으로 이름없는 함수 호출(익명함수)
+		*/
+		
+		// 익명함수
+		// 해석:페이지가 로딩이 끝난 후에 이 함수를 실행한다.
+		window.onload = function() {
+			let out="";
+			out+="<ul>";
+				out+="<li>javascript</li>";
+				out+="<li>jquery</li>";
+				out+="<li>vue</li>";
+			out+="</ul>";
+			
+			document.body.innerHTML = out;
+			
+			
+			//DOM을 사용하는데 중요한것은 동적으로 기존에 없던 것을 추가 or 삭제 or 변경 가능하다.
+			let header = document.createElement("h1");
+			//<h1></h1> 과 같다.
+			
+			let textnode = document.createTextNode("hello");
+			//hello와 같다.
+			
+			header.appendChild(textnode);
+			//<h1>hello</h1> 자식요소로 textnode를 갖는다.
+			
+			document.body.appendChild(header);
+			
+			//img 태그를 동적으로 생성하고 src 속성도 추가하고 body태그에 자식으로 append 시켜보자
+			
+			let img = document.createElement("img"); //<img>
+			img.setAttribute("src", "images/1.jpg"); //<img src=""images/1.jpg">
+			img.setAttribute("width", "100");
+			img.setAttribute("height", "100"); //<img src=""images/1.jpg", width="100",height="100">
+			document.body.appendChild(img);
+		}
+	</script>
+</head>
+<body>
+HELLO WORLD
+</body>
+</html>

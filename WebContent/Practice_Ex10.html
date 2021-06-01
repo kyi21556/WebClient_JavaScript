@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	
+		function focusFunc() {
+			document.getElementById("myinput").style.background="gold";
+		}
+		
+		function blurFunc() {
+			document.getElementById("myinput").style.background="white";
+		}
+		
+		function changeColor(obj) {
+			obj.style.background="gold";
+		}
+		function changeColor2(obj) {
+			obj.style.background="white";
+		}
+	</script>
+</head>
+<body>
+	<form action="#" name="myform">
+		<input type="text" id="myinput" name="myinput" onfocus="focusFunc()" onblur="blurFunc()"> <br>
+		<input type="text" onmouseover="changeColor(this)" onmouseout="changeColor2(this)">
+	</form>
+</body>
+</html>

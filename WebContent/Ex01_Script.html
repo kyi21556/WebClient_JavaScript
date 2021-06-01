@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+			javascript: 웹에서 사용하는 언어이다.
+						언어를 해석하고 실행하는 것은 웹브라우저(해석기:엔진)이다.
+						라인(순서대로)단위로 실행된다.
+						자바스크립트는 객체지향언어이다. 내부적으로 클래스 개념을 가지고 있다.
+						상속, 다형성, 재사용성을 가지고 있다.
+						
+			javascript 사용:
+			1. html의 content, attribute 변경, 삭제, 추가 할 수 있다. [동적]으로
+			2. css속성을 변경, 삭제, 추가 할 수 있다.[동적]으로
+			3. 유효성을 검증 할 수 있다. (id가 입력되었는지, 주민번호가 맞는지, 데이터가 숫자인지... 검증)
+			4. 동적인 웹 화면을 구성 할 수 있다.
+			5. 전 세계적으로 1위를 차지하고 있는 언어이다.
+			   - 모든 개발 회사와 개발자들의 관심을 다 받고있다.
+			   - 자바스크립트를 효율적으로 사용하고싶다라는 관심이 생긴다. (코드량을 줄이고, 많이쓰는 코드 재사용하는)
+			   - 라이브러리 or 프레임워크 (쓰면 50줄의 코드를 5줄로 만들 수 있다.)
+			   - 그것이 jquery.js 이다.(jquery.js의 내부적인 코드는 javascript이다.)	   
+			   - 안에있는 자원을 활용하면 생산성 극대화
+			   - angular.js(MVC), vue.js, react.js 등 100가지가 넘는 라이브러리가 나왔다.
+			   - 우리나라 개발 회사(javascript: FrameWork사용)
+			   - 신규회사는 vue.js, react.js (front) 단점: 버전변경, 사라질수 있음.
+			   - 만약 Front 개발자를 하고 싶다면 최소한 vue.js 또는 react.js 를 써봐야 한다.
+			   
+			   - javascript 언어 웹 부라우저 없이 로컬 서버에서 동작한다(마치 java처럼)
+			   - Node.js®는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임입니다.
+			   - back 단의 코드를 javascript로 대체한다 >> 서브(채팅서버, 보조서버) >> npm 학습
+			   
+			   
+			   
+			 6. 문법 (java 문법과 흡사하다)
+			   1) 대소문자를 엄격하게 구분한다.
+			   2) 종결자 ; (세미콜론)을 사용한다.
+			   3) 타입(var, const, let) : let i = 10; let s = "aaa"; const NUM = 100;
+			   	  유연한 언어이다. var v; v=10 이때 내부적으로 (값을 받는 시점에 타입이 정해진다.) >>number타입
+			 	  연산자, 제어문(java 동일), 객체 가 있다.
+			   4) 사용법 (css 사용법과 동일)
+			   	- in-line(태그 안쪽에: <p> onclick="<script>...")
+			   	- internal(page안에서 일반적으로 <head><script> ...코드</head>)
+				- external(외부 파일: common.js >> link) 가장선호하는 방식! 이유는 유지보수와 재사용성때문			   
+			   */
+			   
+		/*	   
+			javascript 함수생성
+		*/	
+		function call(){	//자바: public void call() {}
+				   alert('internal');
+			   }
+		
+	</script>
+	<script type="text/javascript" src="script/common.js"></script>
+</head>
+<body>
+		<h3>in-line</h3>
+		<input type="button" value="inline" onclick="alert('hello')">
+		<hr>
+		<h3>internal</h3>
+		<input type="button" value="inline" onclick="call()">
+		<hr>
+		<h3>external</h3>
+		<input type="button" value="external" onclick="excall()">
+		
+</body>
+</html>

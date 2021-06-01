@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Web Storage : localStorage, sessionStorage</title>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+        //localStorage 개체 저장/읽기 -- 브라우저를 다시 실행되어도 값은 저장되어있음
+        window.localStorage.Name = "홍길동"; //저장
+        document.write(window.localStorage.Name + "<br/>"); //읽기
+       clrkwu
+        //sessionStorage 개체 저장/읽기 -- 브라우저를 다시 실행하면 값은 지워짐
+        window.sessionStorage.Age = 21;
+        document.write(window.sessionStorage.Age + "<br/>"); //읽기
+ 
+        //방문수
+        if(window.localStorage.VisitCount){
+            window.localStorage.VisitCount = Number(window.localStorage.VisitCount)+1 //1증가
+        }else{
+            window.localStorage.VisitCount = 1;
+        }
+        document.write("방문수 : "+window.localStorage.VisitCount + "번 방문 <br/>");
+ 
+        //지원확인
+        if(window.localStorage){
+            document.write("[1] localStorage를 지원합니다.<br/>");
+        }else{
+            document.write("[1] localStorage를 지원하지 않습니다.<br/>");
+        }
+       
+        // 설정
+        window.localStorage.setItem("Email", "abc@email.com");
+        //== window.localStorage.Email ="abc@email.com");
+        //== window.localStorage["Email"] = "abc@email.com");
+        document.write("[2] " + window.localStorage.getItem("Email") +"<br/>");
+ 
+        // 로컬스토리지에 저장된 데이터 전체 출력
+        document.write("=== 로컬스토리지에 저장된 데이터 전체 출력== <br/>");
+        for(var i = 0; i<window.localStorage.length;i++){
+            var key = window.localStorage.key(i); //키
+            var value = window.localStorage.getItem(key); //값
+            document.write("[i] " + key + " : " + value + "<br/>");
+        }
+ 
+        //삭제
+        window.localStorage.removeItem("Email");
+        //삭제후 출력
+        document.write("[2] " + window.localStorage.getItem("Email") +"<br/>");
+       
+        //전체 로컬스토리지 클리어
+        window.localStorage.clear();
+        document.write("[3] " + window.localStorage.getItem("Name") +"<br/>");

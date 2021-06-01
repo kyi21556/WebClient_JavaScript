@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let myCars;
+	myCars = {
+		"name" : "sally",
+		"age" : 30,
+		"cars" : [
+					{"name" : "Ford","model" : [ "Fiesta", "Focus", "Mustang" ]},
+					{"name" : "BMW" ,"model" : [ "320", "x3", "x5" ]},
+					{"name" : "Fiat","model" : [ "500", "Panda" ]}
+				]
+			}
+
+	//차량 이름 >> 모델명 추출해보기
+	//Ford - @ @ @
+
+	let tempCar = myCars.cars;
+
+	//바디의 객체가 만들어지면 이 함수를 실행 하겠다. >> html의 body가 다 onload(불러와지면) 익명함수를 실행하겠다
+	window.onload = function() {
+		let selectBox = document.getElementById("carList");
+		
+		//select에 옵션 추가
+		// tempOption라는 객체에 <option></option>를 만든다.
+		// tempOption객체에 텍스트를 넣는데 tempCar객체의 이름을 넣는다. <option>여기사이에텍스트</option>
+		// 셀렉트박스안에 myCars.cars.name 들을 추가한다.
+		for (let index in tempCar) {
+			let tempOption = document.createElement("option");
+			tempOption.text = tempCar[index].name;
+			
+			selectBox.options.add(tempOption);
+		}
+		
+		// 셀렉트 박스 이벤트 발생 시
+		// 셀렉트박스를 누르면 익명함수안에 있는 것들을 실행
+		// id가 div1인 곳에는 비어있다고 초기화를 해준다.
+		// 만약 selectIndex가 0이면 전치수식을 해주기에 -1 되고, 실행되는 구문이 없기에 함수가 종료된다.
+		// 하지만 1번째를 클릭하면 0이 되기에 else 쪽으로 넘어간다.
+		// myCars.cars.selectIndex.model값을 selectName 객체에 넣어준다.
+		// for문을 돌리고 selectIndex의 차 모델 값들을 한개씩 넣어준다.
+		// div1 공간에 selectName[index]를 쌓는다.
+		selectBox.onchange = function() { // 셀렉트박스가 바뀌면(onchange) 익명함수안에 있는 것들을 실행
+			let selectIndex = selectBox.selectedIndex;
+			div1.innerHTML = ""; //본문 div1의 내용을 비운다
+			
+			//선택하세요 >> 0
+			//Ford >> 1
+			//BMW >> 2
+			//Fiat >> 3
+			
+			//i += 3;
+			//i = i + 3;
+			
+			selectIndex--; //-1하는 이유 >> 선택하세요가 추가되면서, 하나씩 밀려났기 때문
+			
+			if (selectIndex == -1) { //선택하세요 인 경우
+				
+			} else { //선택하세요가 아니라면
+				let selectName = tempCar[selectIndex].model; //[ "Fiesta", "Focus", "Mustang" ]
+				
+				for (let index in selectName) { //여기서 Fiesta, Focus, Mustang이 하나씩 들어가기 시작함
+					let selectList = selectName[index];  //Fiesta >> Focus >> Mustang
+					div1.innerHTML = div1.innerHTML + selectList + "<br>";
+				}
+			}
+		} //익명함수 종료
+	}
+</script>
+</head>
+<body>
+	<form action="#" id="form1">
+		<select name="carList" id="carList">
+			<option value="null">선택하세요</option>
+		</select>
+	</form>
+	<hr>
+	<div id="div1"></div>
+</body>
+</html>

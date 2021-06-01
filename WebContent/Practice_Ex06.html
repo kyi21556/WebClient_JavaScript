@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	
+	function Call() {
+		if(window.confirm("작업내용")) {
+			alert("삭제");
+		} else {
+			alert("취소");
+		}
+	}
+	
+	function Call2() {
+		window.open("Ex06_popup.html", "zipcode", "width = 200, height=200");
+	}
+	
+	
+	</script>
+</head>
+<body>
+		<button onclick="Call()">버튼</button>
+		<button onclick="Call2()">버튼2</button>
+</body>
+</html>

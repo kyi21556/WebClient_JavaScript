@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>KEY POINT 꼭 외우자</title>
+	<script type="text/javascript">
+		// 1. 자바스크립트의 배열은 대괄호 블럭이다.
+		//    let arr = [];
+		// 데이터를 넣을때는 push(), 뺄때는 pop()
+		
+		// 2. JSON 객체 >> {}	 >> let obj = {}; obj.속성명, obj.함수명
+		
+		// 우리가 원하는 데이터는 단순하지 않다...
+		// ex)날씨데이터, 영화 정보데이터, 지하철 정보데이터 에서 원하는 정보를 추출하려면
+		// 이런 데이터는 복잡하기 때문에 객체와 객체, 객체안에 배열, 배열안에 객체로 혼재되어 있다.
+		// 여기서 필요한 정보를 뽑는 연습을 해야한다.
+		
+		
+		let students=[];
+		students.push({이름:"홍길동", 국어:80, 영어:60});
+		students.push({이름:"아무개", 국어:100, 영어:50});
+		students.push({이름:"이순신", 국어:10, 영어:100});
+		// ㄴ [{}, {}, {}]
+		// 기존에 만들어진 객체에 함수 추가
+		
+		for(let index in students) {
+			students[index].getSum = function() {return this.국어 + this.영어;}
+			students[index].getAvg = function() {return this.getSum()/2;}
+		}
+		
+		console.log(students);
+		
+		for(let index in students) {
+			console.log(students[index].이름);
+			console.log(students[index].getSum());
+			console.log(students[index].getAvg());
+		}
+		
+		
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

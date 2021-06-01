@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Event 객체</title>
+	<script type="text/javascript">
+	/*
+		java:
+	
+		try{
+			0/0 >>예외발생 ...예외객체가 자동으로 new div 만들어지고 객체의 주소가 catch에 전달된다.
+		} catch(Exception e) {
+			확인과 문제 파악...
+		}
+		
+		javascript >> 사건이 발생(click, mouseover)하면 내부적으로 객체를 생성한다.
+		=> 그것을 Event 객체라고 한다.
+		 - 객체안에는 다양한 정보가 있다.(누가, 사건, 사건주체, 영향....)
+		 
+		 http://www.slideshare.net/aehrS/javascript-12-event-object
+		 
+		 window.event.메서드
+		 window.event.속성
+	}
+	*/
+	
+	 window.onload = function() {
+        let btn = document.getElementById("mybtn");
+        
+        btn.onclick = function(e){  // parameter 들어간 이유 : 이벤트가 발생되면 이벤트 객체가 자동 생성
+           console.log(e.type);     //   ㄴ e라는 변수가 이벤트 객체 주소를 받음
+           // ㄴ type은 이벤트 종류를 알려줌  -> click
+           console.log(e.target); // <span>눌러봐</span>
+           console.log(e.currentTarget); // <button id="mybtn"><span>눌러봐</span></button>
+           // ㄴ 이벤트가 걸린 전체의 내용을 가르킴
+           console.log(e.x); // 좌표값
+           console.log(e.y); // 좌표값
+           
+        }
+        let btn2 = document.getElementById("mybtn2");
+        let handler = function(event) { // 파라미터가 event객체를 전달한다.
+           switch (event.type) {
+           case "click": alert("클릭");
+              break;
+           case "mouseover": event.target.style.backgroundColor = "red";
+              break;
+           case "mouseout": event.target.style.backgroundColor = "";
+              break;
+           
+           }
+        };
+        
+        btn2.onclick = handler;  // handler는 함수의 주소니깐 onclick할때 handler함수를 호출해라
+        btn2.onmouseover = handler;
+        btn2.onmouseout = handler;
+     }
+
+	
+	</script>
+</head>
+<body>
+	<button id="mybtn"><span>눌러봐</span></button>
+	<br>
+	<button id="mybtn2">눌러봐2</button>
+</body>
+</html>

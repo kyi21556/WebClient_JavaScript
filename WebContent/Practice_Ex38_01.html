@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	//////////////////////////////////////////////////////////////////////
+	// 차량 이름에서 모델명 추출
+	// 개선된 for문을 이용하라
+	
+	// ex)Ford - Fiesta Focus Mustang
+	//    BMW  - 320    x3    x5
+	//    fiat - 500    Panda
+	
+	
+	let myCars;
+	myCars = {
+	  "name":"john",
+	  "age":30,
+	  "cars":[
+		  		{"name":"Ford", "model":["Fiesta", "Focus", "Mustang"]},
+		  		{"name":"BMW", "model":["320", "x3", "x5"]},
+		  		{"name":"fiat", "model":["500", "Panda"]}
+	  		 ]
+	}
+	
+	for(let index in myCars.cars) {
+		console.log(myCars.cars[index]);
+		document.write("차량이름: " + myCars.cars[index].name);
+		
+		for(let i in myCars.cars[index].model) {
+			document.write("차량종류:" + myCars.cars[index].model[i]);
+		}
+	}
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>

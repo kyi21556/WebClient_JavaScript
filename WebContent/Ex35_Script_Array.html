@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//javascript 배열 (Array)은 java의 (Collection)과 같다.
+		
+		let array = ["포도", "사과"];
+		document.write(array.toString() + "<br>"); // 재정의(배열값을 출력)
+		document.write(array + "-default toString()<br>");
+		
+		for(let i = 0; i < array.length; i++) {
+			document.write(array[i] + "<br>");
+		}
+		
+		document.write("<hr>");
+		
+		//개선된 포문
+		for(let index in array) {
+			document.write(array[index] + "<br>");
+		}
+		
+		//자바스크립트는 동적 배열
+		array[2]="바나나"; //방을 지정할 수도 있다. [동적 데이터 추가]
+		document.write(array.toString() + "-" + array.length + "<br>");
+		
+		//가능은 하나 권장하지 않는다.
+		array[10]="애플망고"; //방을 지정할 수도 있다. [동적 데이터 추가]
+		document.write(array.toString() + "-" + array.length + "<br>");
+		document.write(array[9] + "array[9]<br>");
+		
+		array[9] = "배";
+		document.write(array[9] + "초기화 타입설정: array[9]<br>");
+		
+//////////////////////////////////////////////////////////////////////////////
+		let array2 = ["one","two", "three"]; 
+		document.write("array2: " + array2.length + "<br>");
+		
+		// 이방법도 권장하지 않는다
+		array2.length = 2; //강제로 방을 줄이면
+		document.write(array2.toString() + "-" + array2.length + "<br>");
+		// 이방법도 권장하지 않는다
+		array2.length = 4; //강제로 방을 줄이면
+		document.write(array2.toString() + "-" + array2.length + "<br>");
+//////////////////////////////////////////////////////////////////////////////
+
+		//권장방법
+		// Array는 Stack구조 입니다. >>LIFO>> push(), pop()
+		array2.push("four");
+		document.write(array2.toString() + "-" + array2.length + "<br>");
+		document.write(array2.pop() + "<br>");
+		document.write(array2.pop() + "<br>");
+		document.write(array2.pop() + "<br>");
+		document.write(array2.pop() + "<br>");
+		document.write(array2.pop() + "<br>");
+		
+		/*
+		이 순서대로 나온다.
+		four
+		undefined
+		undefined
+		two
+		one
+		*/
+		
+		// 가장 좋은방법!!!!!!!!
+		let list = [];
+		list.push("A");
+		list.push("B");
+		list.push("C");
+		
+		document.write("<br>" + list.pop());
+	</script>
+</head>
+<body>
+
+</body>
+</html>

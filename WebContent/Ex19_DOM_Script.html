@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<ul id="mylist"><li>coffee</li><li>tea</li><li>milk</li></ul>
+	<button onclick="myFunc()">클릭</button>
+	<button onclick="myFunc2()">클릭</button>
+</body>
+	<script type="text/javascript">
+		function myFunc() {
+			let list = document.getElementById("mylist");
+			console.log(list); //<ul id="mylist"><li>coffee</li><li>tea</li><li>milk</li></ul>
+			list.removeChild(list.childNodes[0]);
+			//요소(태그배열): select >> option, ul or ol >> li 들도 배열이다.
+		}
+		
+		function myFunc2() {
+			let textnode = document.createTextNode("water");
+			let item = document.getElementById("mylist").childNodes[0];
+			console.log(item); // <li>coffee</li>
+			console.log(item.childNodes[0]); // coffee
+			
+			item.replaceChild(textnode, item.childNodes[0]);
+			// 커피라는 컨텐츠를 워터로 바꾼다.
+		}
+		
+	</script>
+</html>
